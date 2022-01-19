@@ -3,7 +3,7 @@
 /** 所需的各种插件 **/
 import React, {useEffect} from "react";
 
-import {HashRouter as Router, useRoutes, Routes, Route, Navigate} from "react-router-dom";
+import {BrowserRouter as Router, useRoutes, Routes, Route, Navigate} from "react-router-dom";
 
 // antd的多语言
 import {ConfigProvider} from "antd";
@@ -27,6 +27,7 @@ const Page1 = LazyLoad(() => import('@/container/Test/page1'));
 const Page2 = LazyLoad(() => import('@/container/Test/page2'));
 const Page3 = LazyLoad(() => import('@/container/Test/page3'));
 const NotFound = LazyLoad(() => import('@/container/Test/notfound'));
+const Login = LazyLoad(() => import('@/container/Test/login'));
 
 const App = () => {
   let routes = useRoutes([
@@ -39,6 +40,7 @@ const App = () => {
       ]
     },
     {path: '/page3', element: <Page3/>},
+    {path: '/login', element: <Login/>},
     {path: '*', element: <NotFound/>}
   ]);
   return routes;

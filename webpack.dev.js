@@ -16,6 +16,7 @@ module.exports = merge(common, {
         }
       },
     },
+    historyApiFallback: true,
     // open: true,  //自动打开浏览器
     // hot: true, //让webpackDevServer开启热更新功能
     // hotOnly: true //当hot module replacement功能没生效时，也不允许浏览器重新加载
