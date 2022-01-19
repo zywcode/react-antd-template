@@ -4,11 +4,13 @@
 import React, {useEffect} from "react";
 
 import {BrowserRouter as Router, useRoutes, Routes, Route, Navigate} from "react-router-dom";
+import { Provider } from "react-redux";
 
 // antd的多语言
 import {ConfigProvider} from "antd";
 import zhCN from "antd/lib/locale-provider/zh_CN";
-import Loadable from "react-loadable"; // 用于代码分割时动态加载模块
+import Loadable from 'react-loadable'; // 用于代码分割时动态加载模块
+import store from '@/store';
 
 /** 普通组件 **/
 import Loading from "@/component/Loading"; // loading动画，用于动态加载模块进行中时显示
@@ -48,7 +50,7 @@ const App = () => {
 
 /** 组件 **/
 export default function RouterConfig(props: any) {
-  console.log(props);
+  // console.log(props);
   // 在组件加载完毕后触发
   useEffect(() => {
     // 可以手动在此预加载指定的模块：
@@ -71,9 +73,11 @@ export default function RouterConfig(props: any) {
 
   return (
     <ConfigProvider locale={zhCN}>
-      <Router>
-        <App/>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <App/>
+        </Router>
+      </Provider>
     </ConfigProvider>
   );
 }

@@ -9,8 +9,9 @@ import {
 } from '@ant-design/icons';
 import {message, Tabs, Space} from 'antd';
 import type {CSSProperties} from 'react';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
+import { useStore, useSelector, useDispatch } from "react-redux";
 
 type LoginType = 'phone' | 'account';
 
@@ -22,11 +23,28 @@ const iconStyles: CSSProperties = {
   cursor: 'pointer',
 };
 
-export default () => {
-  const navigate = useNavigate();
+export default (props: any) => {
   const [loginType, setLoginType] = useState<LoginType>('account');
+  const store = useStore();
+  const selector = useSelector(state => state.app);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [username, setUsername] = useState('');
+  console.log("store:", store.getState());
+  console.log("selector:", selector);
+  console.log("what props:", props);
+  useEffect(() => {
+    console.log('effect selector');
+    console.log(selector);
+    setUsername(selector && selector.userinfo && selector.userinfo.username);
+  }, [JSON.stringify(selector)]);
+
+  useEffect(() => {
+    console.log('effect name', username);
+  }, [username]);
   const handleSubmit = async (value: any) => {
     console.log(value)
+    dispatch({type: 'app/getUserinfo', payload: {id: '1', username: value.username}});
     navigate('/home');
   }
   return (

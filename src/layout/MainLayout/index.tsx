@@ -29,6 +29,9 @@ export default function MainLayout(props: any) {
             <Menu.Item key='4'>
               <Link to='/page2'>Page2</Link>
             </Menu.Item>
+            <Menu.Item key='5'>
+              <Link to='/login'>Login</Link>
+            </Menu.Item>
           </SubMenu>
         </Menu>
       </Sider>
