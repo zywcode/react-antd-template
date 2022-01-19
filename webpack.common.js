@@ -1,5 +1,5 @@
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -30,7 +30,7 @@ module.exports = {
       filename: "[name]-[contenthash].css"
     }),
     new Webpack.ProvidePlugin({ //全局引入jquery，此后在任何位置可直接使用$，Lodash或其他库也可以像这样引入，当然也可以在dist目录的lib文件夹下放第三方库，在html模板中直接引入
-      '$':'jquery'
+      '$': 'jquery'
     })
   ],
   module: {
@@ -44,14 +44,40 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/,  //sass/scss转换css
-        use: [MiniCssExtractPlugin.loader,'css-loader','sass-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       },
       {
         test: /\.css/,
-        use:[
+        use: [
           'style-loader',
           'css-loader',
         ]
+      },
+      // {
+      //   test: /\.scss$/,
+      //   use: [
+      //     'style-loader',
+      //     'css-loader',
+      //     'postcss-loader',
+      //     {
+      //       loader: 'sass-loader',
+      //       options: {
+      //         sourceMap: true,
+      //       },
+      //     },
+      //   ],
+      // },
+      {
+        test: /\.less$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          {
+            loader: 'less-loader',
+            options: { lessOptions: { javascriptEnabled: true } },
+          },
+        ],
       },
       {
         test: /\.(png|svg|jpg|gif|webp|jfif)$/, //图片打包

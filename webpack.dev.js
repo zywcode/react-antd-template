@@ -7,7 +7,7 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: "inline-source-map", //控制台提示信息映射
   devServer: { //开发服务器
-    port: "8001",
+    port: "9001",
     proxy: { //反向代理，根据需求自行修改
       "/api": {
         target: "http://127.0.0.1:3000",
