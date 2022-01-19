@@ -5,6 +5,9 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
+    "@ant-design/pro-card": "^1.18.24",
+    "@ant-design/pro-form": "^1.52.12",
+    "@ant-design/pro-layout": "^6.32.5",
     "@babel/core": "^7.16.7",
     "@babel/preset-env": "^7.16.7",
     "@babel/preset-react": "^7.16.7",
