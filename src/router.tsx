@@ -25,6 +25,7 @@ const MainLayout = LazyLoad(() => import('@/layout/MainLayout'));
 const Home = LazyLoad(() => import('@/container/Test/home'));
 const Page1 = LazyLoad(() => import('@/container/Test/page1'));
 const Page2 = LazyLoad(() => import('@/container/Test/page2'));
+const Page3 = LazyLoad(() => import('@/container/Test/page3'));
 const NotFound = LazyLoad(() => import('@/container/Test/notfound'));
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
         {path: '/', element: <Navigate to='/home'/>}
       ]
     },
+    {path: '/page3', element: <Page3/>},
     {path: '*', element: <NotFound/>}
   ]);
   return routes;

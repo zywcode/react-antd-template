@@ -6,11 +6,11 @@ import {useNavigate} from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate('/page3');
+    navigate('/home');
   }
   return <div>
-    Home
-    <Button onClick={handleClick}>跳转到Page3</Button>
+    Page3
+    <Button onClick={handleClick}>跳转到主页</Button>
   </div>
 };
 
