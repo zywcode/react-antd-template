@@ -3,14 +3,9 @@
 /** 所需的各种插件 **/
 import React, {useEffect} from "react";
 
-import {BrowserRouter as Router, useRoutes, Routes, Route, Navigate} from "react-router-dom";
-import { Provider } from "react-redux";
+import {useRoutes, Navigate} from "react-router-dom";
 
-// antd的多语言
-import {ConfigProvider} from "antd";
-import zhCN from "antd/lib/locale-provider/zh_CN";
 import Loadable from 'react-loadable'; // 用于代码分割时动态加载模块
-import store from '@/store';
 
 /** 普通组件 **/
 import Loading from "@/component/Loading"; // loading动画，用于动态加载模块进行中时显示
@@ -31,25 +26,7 @@ const Page3 = LazyLoad(() => import('@/container/Test/page3'));
 const NotFound = LazyLoad(() => import('@/container/Test/notfound'));
 const Login = LazyLoad(() => import('@/container/Test/login'));
 
-const App = () => {
-  let routes = useRoutes([
-    {
-      path: '/', element: <MainLayout/>, children: [
-        {path: 'home', element: <Home/>},
-        {path: 'page1', element: <Page1/>},
-        {path: 'page2', element: <Page2/>},
-        {path: '/', element: <Navigate to='/home'/>}
-      ]
-    },
-    {path: '/page3', element: <Page3/>},
-    {path: '/login', element: <Login/>},
-    {path: '*', element: <NotFound/>}
-  ]);
-  return routes;
-};
-
-/** 组件 **/
-export default function RouterConfig(props: any) {
+const RouterConfig = () => {
   // console.log(props);
   // 在组件加载完毕后触发
   useEffect(() => {
@@ -70,14 +47,20 @@ export default function RouterConfig(props: any) {
     // }
     return component;
   }
+  let routes = useRoutes([
+    {
+      path: '/', element: <MainLayout/>, children: [
+        {path: 'home', element: <Home/>},
+        {path: 'page1', element: <Page1/>},
+        {path: 'page2', element: <Page2/>},
+        {path: '', element: <Navigate to='/home'/>}
+      ]
+    },
+    {path: '/page3', element: <Page3/>},
+    {path: '/login', element: <Login/>},
+    {path: '*', element: <NotFound/>}
+  ]);
+  return routes;
+};
 
-  return (
-    <ConfigProvider locale={zhCN}>
-      <Provider store={store}>
-        <Router>
-          <App/>
-        </Router>
-      </Provider>
-    </ConfigProvider>
-  );
-}
+export default RouterConfig;

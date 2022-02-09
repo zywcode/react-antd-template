@@ -1,11 +1,15 @@
 import React from 'react';
 import {Button} from "antd";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams, useSearchParams} from "react-router-dom";
 
 
 const Home = () => {
   const navigate = useNavigate();
+  const params = useParams();
+  const searchParams = useSearchParams();
+
   const handleClick = () => {
+    console.log(params);
     navigate('/home');
   }
   return <div>
