@@ -1,0 +1,30 @@
+{
+  "port": 4000,
+  "secret": {
+    "password": "xxx!1@2#3",
+    "cookie": "xxx!1@2#3",
+    "expire": 14400,
+    "cheat": "1010"
+  },
+  "mysql": {
+    "host": "mysql.rds.aliyuncs.com",
+    "port": 3366,
+    "user": "root",
+    "database": "root",
+    "password": "root!@#",
+    "protocol": "mysql",
+    "query": {
+      "pool": true,
+      "debug": true,
+      "cache": false
+    },
+    "debug": false
+  },
+  "qiniu": {
+    "ACCESS_KEY": "xxx",
+    "SECRET_KEY": "xxx",
+    "Bucket_Name": "xxx",
+    "Uptoken_Url": "uptoken",
+    "Domain": "http://xxx.xxx.com/"
+  }
+}

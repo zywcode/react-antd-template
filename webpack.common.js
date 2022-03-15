@@ -13,6 +13,9 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')    // 定义输出文件夹dist路径
   },
   plugins: [
+    new Webpack.DefinePlugin({
+      env: JSON.stringify({mode: process.env.NODE_ENV, api: process.env.API}),
+    }),
     new CleanWebpackPlugin({  // 每次打包前删除dist文件夹中的文件
       cleanOnceBeforeBuildPatterns: ['**/*', '!favicon.ico', '!lib/**'],//dist文件夹下的favicon.ico文件和lib文件夹下的东西都忽略不进行删除
     }),

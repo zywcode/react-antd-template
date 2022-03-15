@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { Link, Outlet } from 'react-router-dom';
-import { DesktopOutlined, PieChartOutlined, FileOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
+import {useDispatch} from "react-redux";
+import {DesktopOutlined, PieChartOutlined, FileOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
 import './index.scss';
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
 export default function MainLayout(props: any) {
+  const dispatch = useDispatch();
   const [collapsed, setCollapsed] = useState(false);
+
+  useEffect(() => {
+    dispatch({type: 'user/getUserInfo'});
+  }, []);
 
   const handleCollapse = (value: boolean) => {
     setCollapsed(value);
