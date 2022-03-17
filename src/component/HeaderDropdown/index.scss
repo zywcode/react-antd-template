@@ -1,0 +1,30 @@
+.header-dropdown {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 12px;
+  cursor: pointer;
+  transition: all .3s;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, .025);
+  }
+
+  .ant-avatar {
+    vertical-align: middle;
+  }
+
+  .username {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 24px;
+    margin-left: 8px;
+  }
+}
+
+.header-dropdown-overlay {
+  .anticon {
+    margin-right: 8px;
+  }
+}
