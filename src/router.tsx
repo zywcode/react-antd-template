@@ -19,6 +19,7 @@ const LazyLoad = (loader: any, timeout?: number) =>
 
 /** 下面是代码分割异步加载的方式引入各页面 webpackChunkName设置生成后的js名字 **/
 const MainLayout = LazyLoad(() => import('@/layout/MainLayout'));
+const Douyin = LazyLoad(() => import('@/container/Douyin/index'));
 const Home = LazyLoad(() => import('@/container/Test/home'));
 const Page1 = LazyLoad(() => import('@/container/Test/page1'));
 const Page2 = LazyLoad(() => import('@/container/Test/page2'));
@@ -53,11 +54,12 @@ const RouterConfig = () => {
         {path: 'home', element: <Home/>},
         {path: 'page1', element: <Page1/>},
         {path: 'page2', element: <Page2/>},
-        {path: '', element: <Navigate to='/home'/>}
+        {path: '', element: <Navigate to='/douyin'/>}
       ]
     },
     {path: '/page3', element: <Page3/>},
     {path: '/login', element: <Login/>},
+    {path: '/douyin', element: <Douyin/>},
     {path: '*', element: <NotFound/>}
   ]);
   return routes;
