@@ -54,7 +54,7 @@ const RouterConfig = () => {
         {path: 'home', element: <Home/>},
         {path: 'page1', element: <Page1/>},
         {path: 'page2', element: <Page2/>},
-        {path: '', element: <Navigate to='/douyin'/>}
+        {path: '', element: <Navigate to='/home'/>}
       ]
     },
     {path: '/page3', element: <Page3/>},
