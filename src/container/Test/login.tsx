@@ -44,7 +44,7 @@ export default (props: any) => {
   }, [username]);
   const handleSubmit = async (value: any) => {
     console.log(value)
-    dispatch({type: 'app/getUserinfo', payload: {id: '1', username: value.username}});
+    dispatch({type: 'user/setUserInfo', payload: {id: '1', username: value.username}});
     navigate('/home');
   }
   return (

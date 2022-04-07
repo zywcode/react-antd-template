@@ -3,14 +3,8 @@ import { Layout, Menu, Space } from 'antd';
 import { Link, Outlet } from 'react-router-dom';
 import {useDispatch} from "react-redux";
 import {
-  DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
-  TeamOutlined,
-  UserOutlined,
   FileExcelOutlined,
   SmileOutlined,
-  HeartOutlined
 } from '@ant-design/icons';
 import type {MenuDataItem} from '@ant-design/pro-layout';
 import ProLayout, {PageContainer} from '@ant-design/pro-layout';
@@ -84,11 +78,9 @@ export default function MainLayout(props: any) {
         </Space>
       )}
     >
-      {/*<PageContainer>*/}
       <div>
         <Outlet />
       </div>
-      {/*</PageContainer>*/}
     </ProLayout>
   );
 }
