@@ -58,6 +58,7 @@ export default function MainLayout(props: any) {
 
   return (
     <ProLayout
+      title={'Template'}
       style={{
         minHeight: '100vh',
       }}

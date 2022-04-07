@@ -11,8 +11,9 @@ module.exports = merge(common, {
     proxy: { //反向代理，根据需求自行修改
       "/api": {
         target: "http://127.0.0.1:3000",
+        changeOrigin: true,
         pathRewrite: {
-          "^/api": ""
+          "^/api": "/api"
         }
       },
     },
