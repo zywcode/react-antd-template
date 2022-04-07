@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "url-loader": "^4.1.1"
+  },
   "devDependencies": {
     "@ant-design/pro-card": "^1.18.24",
     "@ant-design/pro-form": "^1.52.12",

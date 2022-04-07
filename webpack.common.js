@@ -10,7 +10,8 @@ module.exports = {
   },  // 入口文件
   output: {
     filename: '[name].[chunkhash:8].bundle.js',  // 定义输出文件名
-    path: path.resolve(__dirname, 'dist')    // 定义输出文件夹dist路径
+    path: path.resolve(__dirname, 'dist'),    // 定义输出文件夹dist路径
+    publicPath: '/',
   },
   plugins: [
     new Webpack.DefinePlugin({
@@ -88,7 +89,7 @@ module.exports = {
           {
             loader: "url-loader",  //图片base64化
             options: {
-              limit: 1024 * 100,  //小于100kb的图片会被base64
+              limit: 1024 * 1,  //小于100kb的图片会被base64
               name: "assets/[name]_[hash:10].[ext]"
             }
           }
